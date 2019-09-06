@@ -8,7 +8,8 @@
     "prebuild": "rimraf dist",
     "build": "sucrase ./src -d ./dist --transforms typescript,imports",
     "lint": "eslint --color ./src/*",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "keywords": [
     "Node.js",
@@ -82,6 +83,14 @@
     "rules": {}
   },
   "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
     "roots": [
       "<rootDir>/tests"
     ],
@@ -99,6 +108,6 @@
     ]
   },
   "gitHooks": {
-    "pre-commit": "npm run lint && npm run test"
+    "pre-commit": "npm run lint && npm run coverage"
   }
 }

@@ -1,5 +1,5 @@
-import somar from '../src/server'
+import methods from '../src/server'
 
 test('should return given a correct value', (): void => {
-  expect(somar(10, 20)).toBe(30)
+  expect(methods.somar(10, 20)).toBe(30)
 })
