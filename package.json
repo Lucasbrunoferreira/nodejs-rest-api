@@ -2,11 +2,10 @@
   "name": "nodejs-rest-api",
   "version": "1.0.0",
   "description": "Api to register Orders with Node.js + TypeScript in the mongoDB",
-  "main": "server.ts",
+  "main": "src/server.ts",
   "scripts": {
     "dev": "nodemon src/server.ts",
-    "prebuild": "rimraf dist",
-    "build": "sucrase ./src -d ./dist --transforms typescript,imports",
+    "build": "tsc",
     "lint": "eslint --color ./src/*",
     "test": "jest",
     "coverage": "jest --coverage"
@@ -18,8 +17,12 @@
   ],
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
     "express": "^4.16.4",
-    "mongoose": "^5.4.19"
+    "method-override": "^3.0.0",
+    "mongoose": "^5.4.19",
+    "typedi": "^0.8.0",
+    "winston": "^3.2.1"
   },
   "author": "Lucas B Ferreira",
   "license": "MIT",
@@ -46,17 +49,17 @@
     "rimraf": "^2.6.3",
     "sucrase": "^3.10.1",
     "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
     "typescript": "^3.5.3",
     "yorkie": "^2.0.0"
   },
   "nodemonConfig": {
     "watch": [
-      "src"
+      "src",
+      ".env"
     ],
-    "execMap": {
-      "ts": "sucrase-node src/server.ts"
-    },
-    "ext": "ts"
+    "exec": "ts-node  --transpile-only ./src/server.ts",
+    "ext": "js,ts,json"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
@@ -80,7 +83,14 @@
       "ecmaVersion": 2018,
       "sourceType": "module"
     },
-    "rules": {}
+    "rules": {
+      "@typescript-eslint/explicit-member-accessibility": 0,
+      "@typescript-eslint/explicit-function-return-type": 0,
+      "@typescript-eslint/no-parameter-properties": 0,
+      "@typescript-eslint/interface-name-prefix": 0,
+      "@typescript-eslint/no-explicit-any": 0,
+      "no-useless-constructor": 0
+    }
   },
   "jest": {
     "coverageThreshold": {

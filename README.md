@@ -8,6 +8,7 @@ Structure for node.js projects involving typescript
 
 Hello, my name is Lucas Bruno, and I am providing this framework, which has been very helpful to me during the development of REST APIs using Node.js and TypeScript. Hope you enjoy, any feedback and pull request is very welcome!
 
+
 ### Prerequisites
 
 In order to use this project, you must have the following requirements:
@@ -19,9 +20,26 @@ In order to use this project, you must have the following requirements:
 
 Project structure:
 ```
-/src - Main folder for development
+├── src
+│   ├── api               ---> The Folder to handler API layers
+│   │   ├── controllers   ---> Input and Output of the application, along with basic request validations.
+│   │   │
+│   │   ├── middlewares   ---> Request Interceptors
+│   │   │
+│   │   └── routes        ---> App route settings
+│   │
+│   ├── config            ---> Application Settings, Logging, Environment, Express middleware ...
+│   │
+│   ├── interfaces        ---> Implementation of interfaces for development assistance
+│   │
+│   ├── models            ---> Models, Entities and Schemas for manipulation and persistence.
+│   │
+│   ├── persistence       ---> Definitions and database instances.
+│   │
+│   └── services          ---> It gathers business rules and external manipulations (Database, other api's ...)
+│
+├── tests                 ---> Unit Tests
 
-/tests - Main folder for unit testing
 ```
 
 ### Installing and Running
@@ -95,8 +113,11 @@ docker run -d -p 8080:8080 nodejs-api
 * [EditorConfig](https://editorconfig.org/) - Helps maintain consistent coding styles
 
 
+## References
+
+* [Santiq](https://softwareontheroad.com/ideal-nodejs-project-structure/?utm_source=devto&utm_medium=post) - Bulletproof node.js project architecture
+* [RocketSeat](https://github.com/Rocketseat/youtube-typescript-nodejs) - Project code produced during TypeScript video on NodeJS
+
 ## Authors
 
 *  [Lucas Bruno Ferreira](https://github.com/Lucasbrunoferreira)
-
-
