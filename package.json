@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/server.ts",
     "build": "tsc",
-    "lint": "eslint --color ./src/*",
+    "lint": "eslint --ignore-path .gitignore --ext .ts src/",
     "test": "jest",
     "coverage": "jest --coverage"
   },
@@ -118,6 +118,6 @@
     ]
   },
   "gitHooks": {
-    "pre-commit": "npm run lint && npm run coverage"
+    "pre-commit": "npm run lint"
   }
 }
