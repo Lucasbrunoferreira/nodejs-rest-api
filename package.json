@@ -18,7 +18,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "method-override": "^3.0.0",
     "mongoose": "^5.7.5",
     "typedi": "^0.8.0",
